@@ -11,6 +11,7 @@ import {
 import AboutPage from "./screens/AboutPage";
 import ContactPage from "./screens/ContactPage";
 import Homepage from "./screens/Homepage";
+import ErrorPage from "./screens/ErrorPage";
 
 const CustomeLink = (props) => {
   return (
@@ -51,17 +52,17 @@ function App() {
               style={{ maxHeight: "200px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">
+              <Nav.Link>
                 <CustomeLink path="/" title="Home">
                   Home
                 </CustomeLink>
               </Nav.Link>
-              <Nav.Link href="#action1">
+              <Nav.Link>
                 <CustomeLink path="/about" title="About">
                   About
                 </CustomeLink>
               </Nav.Link>
-              <Nav.Link href="#action1">
+              <Nav.Link>
                 <CustomeLink path="/contact" title="Contact">
                   Contact
                 </CustomeLink>
@@ -78,7 +79,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<div>page doesnt exists</div>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,11 @@
+.errorCard {
+    background-color: #F2F2F2;
+    border-radius: 25px;
+    padding: 50px;
+    margin-top: 1rem;
+}
+
+.centerContent {
+    display: flex; 
+    align-items: center;
+}
