@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   Container,
@@ -13,21 +13,6 @@ import ContactPage from "./screens/ContactPage";
 import Homepage from "./screens/Homepage";
 import ErrorPage from "./screens/ErrorPage";
 
-const CustomeLink = (props) => {
-  return (
-    <Link
-      style={{
-        color: "inherit",
-        textDecoration: "inherit",
-        marginRight: "10px",
-      }}
-      to={props.path}
-    >
-      {props.title}
-    </Link>
-  );
-};
-
 const CustomIconImage = (props) => {
   return (
     <Image
@@ -40,6 +25,23 @@ const CustomIconImage = (props) => {
 };
 
 function App() {
+  const [activePage, setActivePage] = useState('')
+
+  const CustomeLink = (props) => {
+    return (
+      <Link
+        style={{
+          color: activePage === props.title ? "#5D001E" : "inherit",
+          textDecoration: "inherit",
+        }}
+        to={props.path}
+        onClick={() => {setActivePage(props.title)}}
+      >
+        {props.title}
+      </Link>
+    );
+  };
+
   return (
     <Router>
       <Navbar bg="light" expand="lg">
