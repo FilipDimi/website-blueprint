@@ -1,0 +1,12 @@
+.card {
+    width: 400px;
+    height: 510px;
+    background-color: #FDA198;
+    margin-bottom: 15px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.imageSize {
+    width: 100%;
+}
