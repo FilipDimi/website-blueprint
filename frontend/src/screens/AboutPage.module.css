@@ -1,0 +1,13 @@
+.containerBg {
+    background-color: #F8F9FA;
+    padding: 20px 50px;
+    margin-top: 15px;
+    border-radius: 1.5rem;
+}
+
+.teamFlexBox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;  
+}

@@ -1,46 +1,25 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Container,
   Nav,
   Navbar,
   NavbarBrand,
-  Image,
 } from "react-bootstrap";
+
+import CustomIconImage from "./components/CustomIconImage";
+import CustomLink from "./components/CustomLink";
 
 import AboutPage from "./screens/AboutPage";
 import ContactPage from "./screens/ContactPage";
 import Homepage from "./screens/Homepage";
 import ErrorPage from "./screens/ErrorPage";
 
-const CustomIconImage = (props) => {
-  return (
-    <Image
-      src={props.imageLink}
-      alt={props.imageAlt}
-      style={{ maxWidth: "3rem" }}
-      roundedCircle
-    />
-  );
-};
+import { iconObj } from './common/companySpecific';
+
 
 function App() {
   const [activePage, setActivePage] = useState('Home')
-
-  const CustomeLink = (props) => {
-    return (
-      <Link
-        style={{
-          color: activePage === props.title ? "#5D001E" : "inherit",
-          textDecoration: "inherit",
-        }}
-        to={props.path}
-        onClick={() => {setActivePage(props.title)}}
-      >
-        {props.title}
-      </Link>
-    );
-  };
 
   return (
     <Router>
@@ -55,24 +34,24 @@ function App() {
               navbarScroll
             >
               <Nav.Link>
-                <CustomeLink path="/" title="Home">
+                <CustomLink path="/" title="Home" setActivePage={setActivePage} activePage={activePage} >
                   Home
-                </CustomeLink>
+                </CustomLink>
               </Nav.Link>
               <Nav.Link>
-                <CustomeLink path="/about" title="About">
+                <CustomLink path="/about" title="About" setActivePage={setActivePage} activePage={activePage}>
                   About
-                </CustomeLink>
+                </CustomLink>
               </Nav.Link>
               <Nav.Link>
-                <CustomeLink path="/contact" title="Contact">
+                <CustomLink path="/contact" title="Contact" setActivePage={setActivePage} activePage={activePage}>
                   Contact
-                </CustomeLink>
+                </CustomLink>
               </Nav.Link>
             </Nav>
             <CustomIconImage
-              imageLink="https://images.pexels.com/photos/8817677/pexels-photo-8817677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              imageAlt="icon"
+              imageLink={iconObj.src}
+              imageAlt={iconObj.alt}
             />
           </Navbar.Collapse>
         </Container>
@@ -88,3 +67,5 @@ function App() {
 }
 
 export default App;
+
+// Custom link has props to keep active page colored, name the tab, and the path

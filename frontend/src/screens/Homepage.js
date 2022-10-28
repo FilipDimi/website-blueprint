@@ -1,7 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import GreyEmptyContainer from "../components/GreyEmptyContainer";
+import IconsContainer from "../components/IconsContainer";
 import styles from "./HomePage.module.css";
+
+import { jumbotronImgUrl } from '../common/companySpecific';
 
 const Homepage = () => {
   return (
@@ -9,7 +11,7 @@ const Homepage = () => {
       <Container
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1842&q=80)",
+            `url(${jumbotronImgUrl})`,
         }}
         className={styles.backgroundImage}
         fluid
@@ -22,7 +24,7 @@ const Homepage = () => {
           </p>
         </Container>
       </Container>
-      <GreyEmptyContainer />
+      <IconsContainer />
     </React.Fragment>
   );
 };
