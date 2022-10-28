@@ -1,40 +1,56 @@
-import React from "react";
-import { Container, Row, Col, Image, Stack } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Image, Stack, Carousel } from "react-bootstrap";
 import styles from "./AboutPage.module.css";
 
-import { aboutImgObj, colors } from "../common/companySpecific";
+import { colors } from "../common/companySpecific";
 
 const AboutPage = () => {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   return (
-    <Container>
-      <Container className={styles.containerBg}>
-        <Row>
-          <Col xs lg="2" className="text-center">
-            <Image
-              src={aboutImgObj.src}
-              alt={aboutImgObj.alt}
-              style={{ maxWidth: "200px" }}
-              roundedCircle
-            />
-          </Col>
-          <Col className="mt-2" md="auto" style={{ maxWidth: "80%" }}>
-            <Row>
-              <h2>About Us</h2>
-            </Row>
-            <Row>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </Row>
-          </Col>
-        </Row>
+    <Container className="my-5">
+      <Container className={styles.coloredContainerBg}>
+        <Stack gap={1}>
+          <h2 className="text-center">About Us</h2>
+          <p className={styles.justfText}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+            ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit
+            amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua.
+          </p>
+            <Carousel activeIndex={index} onSelect={handleSelect}>
+              <Carousel.Item>
+                <Image
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1547039996-61c1135690c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1689&q=80"
+                  alt="First slide"
+                  responsive
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <Image
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1547039996-61c1135690c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1689&q=80"
+                  alt="Second slide"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <Image
+                  className="d-block w-100"
+                  src="https://images.unsplash.com/photo-1547039996-61c1135690c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1689&q=80"
+                  alt="Third slide"
+                />
+              </Carousel.Item>
+            </Carousel>
+        </Stack>
       </Container>
       <Container className={styles.containerBg}>
         <h2 className={styles.teamFlexBox}>Meet Our Team</h2>

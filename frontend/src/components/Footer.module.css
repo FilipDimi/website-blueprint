@@ -1,0 +1,19 @@
+.footerContainer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.buttonMargin {
+  margin: 0 5px;
+  border-radius: 2rem;
+}
+
+.linkRemoveDec {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.linkRemoveDec:hover {
+  color: #fda198;
+}

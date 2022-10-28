@@ -1,13 +1,25 @@
 .containerBg {
-    background-color: #F8F9FA;
-    padding: 20px 50px;
-    margin-top: 15px;
-    border-radius: 1.5rem;
+  background-color: #F8F9FA;
+  padding: 20px 50px;
+  margin-top: 15px;
+  border-radius: 1.5rem;
+}
+
+.coloredContainerBg {
+  background-color: #F8F9FA;
+  padding: 20px 50px;
+  margin-top: 15px;
+  border-radius: 1.5rem;
 }
 
 .teamFlexBox {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.justfText {
+  text-align: justify;
+  text-justify: inter-word;
 }

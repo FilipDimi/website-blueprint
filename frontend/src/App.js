@@ -15,11 +15,11 @@ import ContactPage from "./screens/ContactPage";
 import Homepage from "./screens/Homepage";
 import ErrorPage from "./screens/ErrorPage";
 
-import { iconObj } from './common/companySpecific';
-
+import { iconObj } from "./common/companySpecific";
+import Footer from "./components/Footer";
 
 function App() {
-  const [activePage, setActivePage] = useState('Home')
+  const [activePage, setActivePage] = useState("Home");
 
   return (
     <Router>
@@ -34,25 +34,37 @@ function App() {
               navbarScroll
             >
               <Nav.Link>
-                <CustomLink path="/" title="Home" setActivePage={setActivePage} activePage={activePage} >
+                <CustomLink
+                  path="/"
+                  title="Home"
+                  setActivePage={setActivePage}
+                  activePage={activePage}
+                >
                   Home
                 </CustomLink>
               </Nav.Link>
               <Nav.Link>
-                <CustomLink path="/about" title="About" setActivePage={setActivePage} activePage={activePage}>
+                <CustomLink
+                  path="/about"
+                  title="About"
+                  setActivePage={setActivePage}
+                  activePage={activePage}
+                >
                   About
                 </CustomLink>
               </Nav.Link>
               <Nav.Link>
-                <CustomLink path="/contact" title="Contact" setActivePage={setActivePage} activePage={activePage}>
+                <CustomLink
+                  path="/contact"
+                  title="Contact"
+                  setActivePage={setActivePage}
+                  activePage={activePage}
+                >
                   Contact
                 </CustomLink>
               </Nav.Link>
             </Nav>
-            <CustomIconImage
-              imageLink={iconObj.src}
-              imageAlt={iconObj.alt}
-            />
+            <CustomIconImage imageLink={iconObj.src} imageAlt={iconObj.alt} />
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -62,6 +74,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
