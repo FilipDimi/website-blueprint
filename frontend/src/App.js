@@ -25,7 +25,7 @@ const CustomIconImage = (props) => {
 };
 
 function App() {
-  const [activePage, setActivePage] = useState('')
+  const [activePage, setActivePage] = useState('Home')
 
   const CustomeLink = (props) => {
     return (
@@ -46,7 +46,7 @@ function App() {
     <Router>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <NavbarBrand>WebName</NavbarBrand>
+          <NavbarBrand>Nerdroc</NavbarBrand>
           <Navbar.Toggle aria-controls="webblueprint" />
           <Navbar.Collapse id="webblueprint">
             <Nav

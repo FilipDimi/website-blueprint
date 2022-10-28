@@ -1,0 +1,15 @@
+.backgroundImage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  padding: 50px;
+}
+
+.imageTextContainer {
+  background-color: rgba(93, 0, 10, 0.15);
+  color: #fff;
+  border-radius: 2rem;
+  height: 150px;
+  text-align: center;
+}
