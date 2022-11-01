@@ -7,8 +7,6 @@ const CustomCarousel = (props) => {
       activeIndex={props.index}
       onSelect={props.handleSelect}
       style={{
-        borderBottomLeftRadius: "1.5rem",
-        borderBottomRightRadius: "1.5rem",
         overflow: "hidden",
       }}
     >
