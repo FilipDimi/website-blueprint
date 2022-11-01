@@ -1,8 +1,8 @@
 import React from "react";
-import { Form, Row, Col, FloatingLabel, Button } from "react-bootstrap";
+import { Form, Row, Col, FloatingLabel } from "react-bootstrap";
 import styles from "./ContactForm.module.css"
 
-import { colors } from "../common/companySpecific";
+import CustomButton from "./CustomButton";
 
 const ContactForm = () => {
   return (
@@ -38,17 +38,7 @@ const ContactForm = () => {
       </FloatingLabel>
 
       <div className="d-grid">
-        <Button
-          variant="secondary"
-          size="lg"
-          style={{
-            backgroundColor: colors.primary,
-            borderColor: colors.primary,
-            borderRadius: 0
-          }}
-        >
-          Send Message
-        </Button>
+        <CustomButton text="Send Us a Message" />
       </div>
     </Form>
   );

@@ -14,7 +14,7 @@ export const iconObj = {
 export const jumbotronColor = "rgba(93, 0, 10, 0.15)";
 
 // Image url for the Homepage jumbotron
-export const jumbotronImgUrl = "https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1842&q=80";
+export const jumbotronImgUrl = "https://cdn-icons-png.flaticon.com/512/3183/3183463.png";
 
 // Image url for aboutpage
 export const aboutImgObj = {
