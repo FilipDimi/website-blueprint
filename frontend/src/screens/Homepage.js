@@ -1,13 +1,16 @@
-import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Image, Stack } from "react-bootstrap";
 import styles from "./HomePage.module.css";
 import { motion } from "framer-motion";
 
 import CustomButton from "../components/CustomButton";
+import MotionDiv from "../components/MotionDiv";
 import IconsContainer from "../components/IconsContainer";
-import { jumbotronImgUrl } from "../common/companySpecific";
+import { jumbotronImgUrl, companyFacts } from "../common/companySpecific";
 
 const Homepage = () => {
+  const [fact, setFact] = useState(companyFacts[0]);
+
   return (
     <React.Fragment>
       <Container className="p-4">
@@ -49,6 +52,53 @@ const Homepage = () => {
         </Row>
       </Container>
       <IconsContainer />
+      <MotionDiv
+        xy="y"
+        initCoord={200}
+        initScale={0.5}
+        initOpacity={1}
+        animateCoord={0}
+        animateScale={1}
+        animateOpacity={1}
+        transition={1}
+      >
+        <Container
+          style={{
+            backgroundColor: "#F8F9FA",
+            height: 300,
+            marginTop: 500,
+            marginBottom: 200,
+            padding: 30,
+          }}
+        >
+          <Row>
+            <Col lg={8}>
+              <h3>{fact.title}</h3>
+              <p>{fact.desc}</p>
+            </Col>
+            <Col xs={12} md={12} lg={4}>
+              <Stack gap={2}>
+                <CustomButton
+                  onClick={() => setFact(companyFacts[0])}
+                  text="What We Believe In"
+                />
+                <CustomButton
+                  onClick={() => setFact(companyFacts[1])}
+                  text="Our Moto is"
+                />
+                <CustomButton
+                  onClick={() => setFact(companyFacts[2])}
+                  text="What We Love"
+                />
+                <CustomButton
+                  onClick={() => setFact(companyFacts[3])}
+                  text="What We Do"
+                />
+              </Stack>
+            </Col>
+          </Row>
+        </Container>
+      </MotionDiv>
     </React.Fragment>
   );
 };
