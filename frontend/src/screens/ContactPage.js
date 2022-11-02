@@ -4,12 +4,8 @@ import {
   Row,
   Col,
   Image,
-  Form,
-  FloatingLabel,
-  Button,
 } from "react-bootstrap";
 
-import { colors } from "../common/companySpecific";
 import ContactForm from "../components/ContactForm";
 
 const ContactPage = () => {
