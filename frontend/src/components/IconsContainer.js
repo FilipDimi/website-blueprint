@@ -1,15 +1,13 @@
 import React from 'react'
-import { Container, Row, Col, Stack } from 'react-bootstrap';
-import { EmojiSmile, EmojiExpressionless, EmojiWink } from 'react-bootstrap-icons';
-import { colors } from '../common/companySpecific';
+import { Container, Row } from 'react-bootstrap';
 
-const IconsContainer = () => {
+import styles from "./IconsContainer.module.css"
+
+const IconsContainer = (props) => {
   return (
-    <Container className='pt-3' style={{ backgroundColor: "#f0f2f4", height: 100 }} fluid>
-        <Row className='text-center'>
-            <Col><EmojiSmile fontSize={50} color={colors.primary} /></Col>
-            <Col><EmojiExpressionless fontSize={50} color={colors.primary} /></Col>
-            <Col><EmojiWink fontSize={50} color={colors.primary} /></Col>
+    <Container className={styles.diagonalBox} fluid>
+        <Row className={styles.centerVertically}>
+          {props.children}
         </Row>
     </Container>
   )

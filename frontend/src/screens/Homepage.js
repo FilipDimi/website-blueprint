@@ -3,6 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import styles from "./HomePage.module.css";
 
 import CustomButton from "../components/CustomButton";
+import IconsContainer from "../components/IconsContainer";
 import { jumbotronImgUrl } from "../common/companySpecific";
 
 const Homepage = () => {
@@ -34,6 +35,7 @@ const Homepage = () => {
           </Col>
         </Row>
       </Container>
+      <IconsContainer />
     </React.Fragment>
   );
 };
