@@ -17,8 +17,8 @@ const Homepage = () => {
         <Row>
           <Col xs={12} md={8} className={styles.hvcenter}>
             <motion.div
-              initial={{ x: -300, scale: 0.5 }}
-              animate={{ x: 0, scale: 1 }}
+              initial={{ x: -300, scale: 1, opacity: 0 }}
+              animate={{ x: 0, scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <Container className={`text-center`} style={{ width: "80%" }}>
@@ -38,8 +38,8 @@ const Homepage = () => {
           </Col>
           <Col xs={6} md={4} className={styles.center}>
             <motion.div
-              initial={{ x: 300, scale: 0.5 }}
-              animate={{ x: 0, scale: 1 }}
+              initial={{ x: 300, scale: 1, opacity: 0 }}
+              animate={{ x: 0, scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <Image
@@ -56,8 +56,8 @@ const Homepage = () => {
       <MotionDiv
         xy="y"
         initCoord={200}
-        initScale={0.5}
-        initOpacity={1}
+        initScale={1}
+        initOpacity={0.5}
         animateCoord={0}
         animateScale={1}
         animateOpacity={1}
