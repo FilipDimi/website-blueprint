@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import CustomButton from "../components/CustomButton";
 import MotionDiv from "../components/MotionDiv";
-import IconsContainer from "../components/IconsContainer";
+import LeftTiltContainer from "../components/LeftTiltContainer";
 import { jumbotronImgUrl, companyFacts } from "../common/companySpecific";
 
 const Homepage = () => {
@@ -51,7 +51,8 @@ const Homepage = () => {
           </Col>
         </Row>
       </Container>
-      <IconsContainer />
+      <LeftTiltContainer />
+      <LeftTiltContainer />
       <MotionDiv
         xy="y"
         initCoord={200}
@@ -66,8 +67,8 @@ const Homepage = () => {
           style={{
             backgroundColor: "#F8F9FA",
             height: 300,
-            marginTop: 500,
-            marginBottom: 200,
+            marginTop: 100,
+            marginBottom: 100,
             padding: 30,
           }}
         >

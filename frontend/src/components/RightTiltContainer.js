@@ -2,13 +2,13 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-import styles from "./IconsContainer.module.css";
+import styles from "./RightTiltContainer.module.css";
 
-const IconsContainer = (props) => {
+const RightTiltContainer = (props) => {
   return (
     <motion.div
-      initial={{ y: 300, scale: 0.5, opacity: 0 }}
-      animate={{ y: 0, scale: 1, opacity: 1 }}
+      initial={{ x: -700, y: -100, scale: 0.5, opacity: 0.5 }}
+      animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <Container className={styles.diagonalBox} fluid>
@@ -18,4 +18,4 @@ const IconsContainer = (props) => {
   );
 };
 
-export default IconsContainer;
+export default RightTiltContainer;
