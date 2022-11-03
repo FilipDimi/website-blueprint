@@ -8,7 +8,7 @@ const CustomLink = (props) => {
   return (
     <Link
       style={{
-        color: props.activePage === props.title ? colors.primary : "inherit",
+        color: "inherit",
         textDecoration: "inherit",
       }}
       to={props.path}

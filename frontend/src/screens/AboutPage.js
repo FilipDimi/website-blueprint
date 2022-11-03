@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Stack, Row, Col } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import styles from "./AboutPage.module.css";
 
 import TeamCardGroup from "../components/BigContainers/TeamCardGroup";

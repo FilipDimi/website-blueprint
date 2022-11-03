@@ -7,7 +7,6 @@ const CustomIconImage = (props) => {
       src={props.imageLink}
       alt={props.imageAlt}
       style={{ maxWidth: "3rem" }}
-      roundedCircle
     />
   );
 };

@@ -10,9 +10,9 @@ import LeftTiltContainer from "../components/Containers/LeftTiltContainer";
 import { jumbotronImgUrl } from "../common/companySpecific";
 import TestimonialGroup from "../components/BigContainers/TestimonialGroup";
 import FactsContainer from "../components/BigContainers/FactsContainer";
+import ImageGroup from "../components/BigContainers/ImageGroup";
 
 const Homepage = () => {
-
   return (
     <React.Fragment>
       <Container className="p-4">
@@ -86,6 +86,15 @@ const Homepage = () => {
       </MotionDiv>
       <LeftTiltContainer />
       <LeftTiltContainer />
+      <Container
+        style={{ backgroundColor: "#F8F9FA", padding: 20, marginTop: 80 }}
+      >
+        <ImageGroup />
+      </Container>
+      <Container className="text-center mt-5">
+        <h2 style={{ fontStyle: 'italic' }}><span style={{ fontSize: 40 }}>"</span>Every morning I long to hold you…I need you, I want you, I have to have you…your warmth, your smell, your taste…ohhh coffee, I love you.<span style={{ fontSize: 40 }}>„</span></h2>
+        <p style={{fontStyle: 'italic', color: '#808080'}}>- Unknown</p>
+      </Container>
     </React.Fragment>
   );
 };

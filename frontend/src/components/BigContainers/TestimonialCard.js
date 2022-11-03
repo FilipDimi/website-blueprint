@@ -8,7 +8,7 @@ const TestimonialCard = (props) => {
   return (
     <Container className={styles.container}>
       <Row>
-        <h5>{title}</h5>
+        <h5 className={styles.title}>{title}</h5>
         <p className={styles.justText}>
             {desc}
         </p>
