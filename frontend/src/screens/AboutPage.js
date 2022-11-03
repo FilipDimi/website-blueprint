@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Container, Stack, Row, Col } from "react-bootstrap";
 import styles from "./AboutPage.module.css";
 
-import TeamCardGroup from "../components/TeamCardGroup";
-import CustomCarousel from "../components/CustomCarousel";
-import NoTiltContainer from "../components/NoTiltContainer";
-import MotionDiv from "../components/MotionDiv";
+import TeamCardGroup from "../components/BigContainers/TeamCardGroup";
+import CustomCarousel from "../components/UI/CustomCarousel";
+import NoTiltContainer from "../components/Containers/NoTiltContainer";
+import MotionDiv from "../components/Containers/MotionDiv";
 
 const AboutPage = () => {
   const [index, setIndex] = useState(0);

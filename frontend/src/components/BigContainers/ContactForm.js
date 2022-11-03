@@ -1,8 +1,9 @@
 import React from "react";
 import { Form, Row, Col, FloatingLabel } from "react-bootstrap";
+import CustomButton from "../UI/CustomButton";
 import styles from "./ContactForm.module.css"
 
-import CustomButton from "./CustomButton";
+
 
 const ContactForm = () => {
   return (

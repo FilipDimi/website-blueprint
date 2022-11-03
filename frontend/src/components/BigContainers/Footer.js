@@ -8,7 +8,7 @@ import {
   EnvelopeFill,
 } from "react-bootstrap-icons";
 import styles from "./Footer.module.css"
-import { colors } from "../common/companySpecific";
+import { colors } from "../../common/companySpecific";
 
 const Footer = () => {
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
             </Nav.Item>
           </Nav>
         </div>
-        <p style={{ color: "#6C757D" }}>Copyright © 2022</p>
+        <p style={{ color: "#6C757D" }}>Nerdroc © 2022</p>
       </Stack>
     </Container>
   );

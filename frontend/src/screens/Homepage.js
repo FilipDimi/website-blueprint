@@ -3,9 +3,10 @@ import { Container, Row, Col, Image, Stack } from "react-bootstrap";
 import styles from "./HomePage.module.css";
 import { motion } from "framer-motion";
 
-import CustomButton from "../components/CustomButton";
-import MotionDiv from "../components/MotionDiv";
-import LeftTiltContainer from "../components/LeftTiltContainer";
+import CustomButton from "../components/UI/CustomButton";
+import MotionDiv from "../components/Containers/MotionDiv";
+import RightTiltContainer from "../components/Containers/RightTiltContainer";
+import LeftTiltContainer from "../components/Containers/LeftTiltContainer";
 import { jumbotronImgUrl, companyFacts } from "../common/companySpecific";
 
 const Homepage = () => {
@@ -51,8 +52,8 @@ const Homepage = () => {
           </Col>
         </Row>
       </Container>
-      <LeftTiltContainer />
-      <LeftTiltContainer />
+      <RightTiltContainer />
+      <RightTiltContainer />
       <MotionDiv
         xy="y"
         initCoord={200}
@@ -100,6 +101,127 @@ const Homepage = () => {
           </Row>
         </Container>
       </MotionDiv>
+      <Container>
+        <h2 className="text-center mb-3">From Our Customers</h2>
+        <Row>
+          <Col lg={3} md={4} sm={6} xs={6}>
+            <Container
+              style={{ backgroundColor: "#F8F9FA", minHeight: 250 }}
+              className="py-3 px-4 mb-3"
+            >
+              <Row>
+                <h5>Best coffee in town</h5>
+                <p className={styles.justText}>
+                  For instance, the top of the page shares short and concise
+                  tweets from customers; as you scroll you will then see a
+                  customer service rating, a series of case studies, and then a
+                  video customer testimonial.
+                </p>
+              </Row>
+              <Row>
+                <Col lg={3}>
+                  <Image
+                    src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+                    alt="testimonials"
+                    width="100%"
+                  />
+                </Col>
+                <Col lg={9} className="mt-3">
+                  <p>Filip Dimitrievski</p>
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+          <Col lg={3} md={4} sm={6} xs={6}>
+            <Container
+              style={{ backgroundColor: "#F8F9FA", minHeight: 250 }}
+              className="py-3 px-4"
+            >
+              <Row>
+                <h5>Best coffee in town</h5>
+                <p className={styles.justText}>
+                  For instance, the top of the page shares short and concise
+                  tweets from customers; as you scroll you will then see a
+                  customer service rating, a series of case studies, and then a
+                  video customer testimonial.
+                </p>
+              </Row>
+              <Row>
+                <Col lg={3}>
+                  <Image
+                    src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                    alt="testimonials"
+                    width="100%"
+                  />
+                </Col>
+                <Col lg={9} className="mt-3">
+                  <p>Filip Dimitrievski</p>
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+          <Col lg={3} md={4} sm={6} xs={6}>
+            <Container
+              style={{ backgroundColor: "#F8F9FA", minHeight: 250 }}
+              className="py-3 px-4"
+            >
+              <Row>
+                <h5>Best coffee in town</h5>
+                <p className={styles.justText}>
+                  For instance, the top of the page shares short and concise
+                  tweets from customers; as you scroll you will then see a
+                  customer service rating, a series of case studies, and then a
+                  video customer testimonial.
+                </p>
+              </Row>
+              <Row>
+                <Col lg={3}>
+                  <Image
+                    src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+                    alt="testimonials"
+                    width="100%"
+                  />
+                </Col>
+                <Col lg={9} className="mt-3">
+                  <p style={{ fontStyle: "italic", color: "grey" }}>
+                    - Filip Dimitrievski
+                  </p>
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+          <Col lg={3} md={4} sm={6} xs={6}>
+            <Container
+              style={{ backgroundColor: "#F8F9FA", minHeight: 250 }}
+              className="py-3 px-4"
+            >
+              <Row>
+                <h5>Best coffee in town</h5>
+                <p className={styles.justText}>
+                  For instance, the top of the page shares short and concise
+                  tweets from customers; as you scroll you will then see a
+                  customer service rating, a series of case studies, and then a
+                  video customer testimonial.
+                </p>
+              </Row>
+              <Row>
+                <Col lg={3}>
+                  <Image
+                    src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+                    alt="testimonials"
+                    width="100%"
+                  />
+                </Col>
+                <Col lg={9} className="mt-3">
+                  <p>Filip Dimitrievski</p>
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
+      <LeftTiltContainer />
+      <LeftTiltContainer />
     </React.Fragment>
   );
 };

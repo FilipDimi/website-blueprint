@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { colors } from "../common/companySpecific";
+import { colors } from "../../common/companySpecific";
 
 const style = {
   normal: {

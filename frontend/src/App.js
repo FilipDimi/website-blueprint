@@ -7,8 +7,8 @@ import {
   NavbarBrand,
 } from "react-bootstrap";
 
-import CustomIconImage from "./components/CustomIconImage";
-import CustomLink from "./components/CustomLink";
+import CustomIconImage from "./components/UI/CustomIconImage";
+import CustomLink from "./components/UI/CustomLink";
 
 import AboutPage from "./screens/AboutPage";
 import ContactPage from "./screens/ContactPage";
@@ -16,7 +16,7 @@ import Homepage from "./screens/Homepage";
 import ErrorPage from "./screens/ErrorPage";
 
 import { iconObj } from "./common/companySpecific";
-import Footer from "./components/Footer";
+import Footer from "./components/BigContainers/Footer";
 
 function App() {
   const [activePage, setActivePage] = useState("Home");

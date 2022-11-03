@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 
-import ContactForm from "../components/ContactForm";
-import MotionDiv from "../components/MotionDiv";
+import ContactForm from "../components/BigContainers/ContactForm";
+import MotionDiv from "../components/Containers/MotionDiv";
 
 const ContactPage = () => {
   return (
