@@ -7,6 +7,7 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 
+import styles from "./index.module.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const client = new ApolloClient({
@@ -18,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <App className={styles.styles} />
     </ApolloProvider>
   </React.StrictMode>
 );

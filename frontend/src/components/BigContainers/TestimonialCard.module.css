@@ -1,0 +1,28 @@
+.container {
+  background-color: #f8f9fa;
+  min-height: 250;
+  padding: 18px 12px 10px 12px;
+}
+
+.justText {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.italicText {
+  font-style: italic;
+  color: #808080;
+}
+
+.image {
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
