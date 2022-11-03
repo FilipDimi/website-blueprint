@@ -6,7 +6,7 @@ const HoverImage = (props) => {
   const { src, alt } = props
 
   return (
-    <Col lg={4} md={6} sm={12} xs={12} className="mb-3">
+    <Col lg={4} md={6} sm={12} xs={12} className="mb-4">
       <motion.div
         whileHover={{
           scale: 1.09,
