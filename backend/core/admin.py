@@ -1,5 +1,22 @@
 from django.contrib import admin
-from .models import DummyModel
+from .models import *
 
 
-admin.site.register(DummyModel)
+admin.site.register(User)
+admin.site.register(BarCategory)
+admin.site.register(BarSubCategory)
+admin.site.register(Beverage)
+admin.site.register(Cocktail)
+admin.site.register(CocktailBeverage)
+admin.site.register(CocktailStep)
+admin.site.register(BarArchive)
+admin.site.register(BarTab)
+admin.site.register(BarTabItem)
+admin.site.register(Thread)
+admin.site.register(Comment)
+admin.site.register(FoodCategory)
+admin.site.register(Food)
+admin.site.register(KitchenArchive)
+admin.site.register(KitchenTab)
+admin.site.register(KitchenTabItem)
+

@@ -1,8 +1,20 @@
 from graphene_django.types import DjangoObjectType
-from .models import DummyModel
+from .models import BarCategory, BarSubCategory, Beverage
 
 
-class DummyType(DjangoObjectType):
+class BarCategoryType(DjangoObjectType):
     class Meta:
-        model = DummyModel
-        fields = ("id", "name", "level", "date")
+        model = BarCategory
+
+
+class BarSubCategoryType(DjangoObjectType):
+    class Meta:
+        model = BarSubCategory
+
+
+class BeverageType(DjangoObjectType):
+    class Meta:
+        model = Beverage
+
+
+

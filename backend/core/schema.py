@@ -1,22 +1,34 @@
 import graphene
-from .models import DummyModel
-from .types import DummyType
+from core.types import BarCategoryType, BarSubCategoryType, BeverageType
+from core.models import BarCategory, BarSubCategory, Beverage
+
 
 class Query(graphene.ObjectType):
-    all_dummies = graphene.List(DummyType)
-    dummy_by_name = graphene.Field(DummyType, name=graphene.String(required=True))
+    all_barcategories = graphene.List(BarCategoryType)
+    all_barsubcategories = graphene.List(BarSubCategoryType)
+    barsubcategories_by_category = graphene.List(BarSubCategoryType, name=graphene.String(required=True))
+    beverages_by_category = graphene.List(BeverageType, name=graphene.String(required=True))
+    beverages_by_subcategory = graphene.List(BeverageType, name=graphene.String(required=True))
 
-    def resolve_all_dummies(root, info):
-        return DummyModel.objects.all()
+    # Categories
+    def resolve_all_barcategories(root, info):
+        return BarCategory.objects.all()
 
-    def resolve_dummy_by_name(root, info, name):
-        try:
-            return DummyModel.objects.get(name=name)
-        except DummyModel.DoesNotExist:
-            return None
+    def resolve_all_barsubcategories(root, info):
+        return BarSubCategory.objects.all()
 
-# class Mutation(graphene.ObjectType):
-#     pass
+    def resolve_barsubcategories_by_category(root, info, name):
+        return BarSubCategory.objects.filter(category__name=name)
+
+    # Beverages
+    def resolve_beverages_by_category(root, info, name):
+        return Beverage.objects.filter(category__name=name)
+
+    def resolve_beverages_by_subcategory(root, info, name):
+        return Beverage.objects.filter(subCategory__name=name)
+
+class Mutation(graphene.ObjectType):
+    pass
 
 
-schema = graphene.Schema(query=Query) # add mutation=Mutation
+schema = graphene.Schema(query=Query)
