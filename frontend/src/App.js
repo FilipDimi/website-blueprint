@@ -11,15 +11,6 @@ import DiscussionScreen from "./screens/DiscussionScreen";
 import CheckInScreen from "./screens/CheckInScreen";
 import Header from "./components/UI/Header";
 
-{/* <CustomLink
-path="/"
-title="Home"
-setActivePage={setActivePage}
-activePage={activePage}
->
-Home
-</CustomLink> */}
-
 function App() {
   const [activePage, setActivePage] = useState("Home");
 
