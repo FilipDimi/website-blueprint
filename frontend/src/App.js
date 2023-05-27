@@ -1,77 +1,37 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  Container,
-  Nav,
-  Navbar,
-  NavbarBrand,
-} from "react-bootstrap";
 
-import CustomIconImage from "./components/UI/CustomIconImage";
-import CustomLink from "./components/UI/CustomLink";
-
-import AboutPage from "./screens/AboutPage";
-import ContactPage from "./screens/ContactPage";
 import Homepage from "./screens/Homepage";
 import ErrorPage from "./screens/ErrorPage";
 
-import { iconObj } from "./common/companySpecific";
 import Footer from "./components/BigContainers/Footer";
+import InventoryScreen from "./screens/InventoryScreen";
+import MenuScreen from "./screens/MenuScreen";
+import DiscussionScreen from "./screens/DiscussionScreen";
+import CheckInScreen from "./screens/CheckInScreen";
+import Header from "./components/UI/Header";
+
+{/* <CustomLink
+path="/"
+title="Home"
+setActivePage={setActivePage}
+activePage={activePage}
+>
+Home
+</CustomLink> */}
 
 function App() {
   const [activePage, setActivePage] = useState("Home");
 
   return (
     <Router>
-      <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <NavbarBrand>Nerdroc</NavbarBrand>
-          <Navbar.Toggle aria-controls="webblueprint" />
-          <Navbar.Collapse id="webblueprint">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "200px" }}
-              navbarScroll
-            >
-              <Nav.Link>
-                <CustomLink
-                  path="/"
-                  title="Home"
-                  setActivePage={setActivePage}
-                  activePage={activePage}
-                >
-                  Home
-                </CustomLink>
-              </Nav.Link>
-              <Nav.Link>
-                <CustomLink
-                  path="/about"
-                  title="About"
-                  setActivePage={setActivePage}
-                  activePage={activePage}
-                >
-                  About
-                </CustomLink>
-              </Nav.Link>
-              <Nav.Link>
-                <CustomLink
-                  path="/contact"
-                  title="Contact"
-                  setActivePage={setActivePage}
-                  activePage={activePage}
-                >
-                  Contact
-                </CustomLink>
-              </Nav.Link>
-            </Nav>
-            <CustomIconImage imageLink={iconObj.src} imageAlt={iconObj.alt} />
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="inventory/" element={<InventoryScreen />} />
+        <Route path="bar/" element={<MenuScreen />} />
+        <Route path="discussion" element={<DiscussionScreen />} />
+        <Route path="checkin/" element={<CheckInScreen />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

@@ -8,7 +8,6 @@ import {
 } from "@apollo/client";
 
 import styles from "./index.module.css"
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const client = new ApolloClient({
   uri: "http://127.0.0.1:8000/graphql",
