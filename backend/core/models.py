@@ -43,12 +43,8 @@ class User(AbstractUser, AbstractBaseModel):
     """
     Custom User Model
     """
-    MODE_CHOICES = (
-        ("B", "Bar"),
-        ("K", "Kitchen"),
-        ("A", "All")
-    )
-    REQUIRED_FIELDS = ["email", "type"]
+
+    REQUIRED_FIELDS = ["email",]
     username = models.CharField(null=True, blank=True, unique=True, max_length=255)
     email = models.CharField(null=True, blank=True, unique=True, max_length=255)
     first_name = models.CharField(null=True, blank=True, max_length=255)
@@ -57,11 +53,10 @@ class User(AbstractUser, AbstractBaseModel):
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    type = models.CharField(max_length=10, choices=MODE_CHOICES)
 
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} [{self.type}]"
+        return f"{self.first_name} {self.last_name}"
 
 
 # Bar Models
@@ -94,23 +89,11 @@ class Beverage(AbstractBaseModel):
     subCategory = models.ForeignKey(BarSubCategory, on_delete=models.CASCADE, related_name="beveragesubcategory")
     name = models.CharField(max_length=255)
     color = models.CharField(max_length=7, default="#CAF1DE")
-    alcohol = models.FloatField()
     count = models.IntegerField()
     criticalCount = models.IntegerField()
 
     def __str__(self):
         return self.name
-
-
-class Cocktail(AbstractBaseModel):
-    """
-    Craft cocktail by a user
-    """
-    name = models.CharField(max_length=255)
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cocktailuser")
-
-    def __str__(self):
-        return f"{self.name} by {self.creator.first_name} {self.creator.last_name}"
 
 
 class CocktailBeverage(AbstractBaseModel):
@@ -119,10 +102,9 @@ class CocktailBeverage(AbstractBaseModel):
     """
     beverage = models.ForeignKey(Beverage, on_delete=models.CASCADE, related_name="cocktailbeveragebeverage")
     count = models.IntegerField()
-    cocktail = models.ForeignKey(Cocktail, on_delete=models.CASCADE, related_name="cocktailbeveragecocktail")
 
     def __str__(self):
-        return f"{self.beverage.name} for {self.cocktail.name}"
+        return f"{self.beverage.name}"
 
 
 class CocktailStep(AbstractBaseModel):
@@ -130,10 +112,22 @@ class CocktailStep(AbstractBaseModel):
     Step for a cocktail
     """
     description = models.CharField(max_length=255)
-    cocktail = models.ForeignKey(Cocktail, on_delete=models.CASCADE, related_name="cocktailstepcocktail")
 
     def __str__(self):
-        return f"{self.cocktail} step -> {self.description[:10]}"
+        return f"{self.description[:10]}"
+    
+
+class Cocktail(AbstractBaseModel):
+    """
+    Craft cocktail by a user
+    """
+    name = models.CharField(max_length=255)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cocktailuser")
+    ingrediants = models.ManyToManyField(CocktailBeverage)
+    steps = models.ManyToManyField(CocktailStep)
+
+    def __str__(self):
+        return f"{self.name} by {self.creator.first_name} {self.creator.last_name}"
 
 
 class BarArchive(AbstractBaseModel):
@@ -195,65 +189,65 @@ class Comment(AbstractBaseModel):
         return f"{self.user.username} -> {self.thread.title}"
 
 
-# Kitchen Models
-class FoodCategory(AbstractBaseModel):
-    """
-    Category for the kitchen
-    """
-    name = models.CharField(max_length=255)
+# # Kitchen Models
+# class FoodCategory(AbstractBaseModel):
+#     """
+#     Category for the kitchen
+#     """
+#     name = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.name
-
-
-class FoodSubCategory(AbstractBaseModel):
-    """
-    SubCategory for the kitchen
-    """
-    category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE, related_name="subfoodcategoryfoodcategory")
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return f"{self.name} -> {self.category.name}"
+#     def __str__(self):
+#         return self.name
 
 
-class Food(AbstractBaseModel):
-    category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE, related_name="foodsubcategory")
-    subcategory = models.ForeignKey(FoodSubCategory, on_delete=models.CASCADE, related_name="foodsubcategory")
-    name = models.CharField(max_length=255)
-    count = models.IntegerField()
+# class FoodSubCategory(AbstractBaseModel):
+#     """
+#     SubCategory for the kitchen
+#     """
+#     category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE, related_name="subfoodcategoryfoodcategory")
+#     name = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.name
-
-class KitchenArchive(AbstractBaseModel):
-    """
-    Archive to keep track of user's stocking
-    """
-    date = models.DateField()
-
-    def __str__(self):
-        return f"{self.date}"
+#     def __str__(self):
+#         return f"{self.name} -> {self.category.name}"
 
 
-class KitchenTab(AbstractBaseModel):
-    """
-    Keep list of user's stocking
-    """
-    date = models.ForeignKey(KitchenArchive, on_delete=models.CASCADE, related_name="kitchentabkitchenarchive")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="kitchentabuser")
+# class Food(AbstractBaseModel):
+#     category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE, related_name="foodsubcategory")
+#     subcategory = models.ForeignKey(FoodSubCategory, on_delete=models.CASCADE, related_name="foodsubcategory")
+#     name = models.CharField(max_length=255)
+#     count = models.IntegerField()
 
-    def __str__(self):
-        return f"{self.date.date} - {self.user.first_name} {self.user.last_name}"
+#     def __str__(self):
+#         return self.name
+
+# class KitchenArchive(AbstractBaseModel):
+#     """
+#     Archive to keep track of user's stocking
+#     """
+#     date = models.DateField()
+
+#     def __str__(self):
+#         return f"{self.date}"
 
 
-class KitchenTabItem(AbstractBaseModel):
-    """
-    An item in the BarTab list
-    """
-    food = models.ForeignKey(Food, on_delete=models.CASCADE, related_name="kitchentabitemfood")
-    kitchentab = models.ForeignKey(KitchenTab, on_delete=models.CASCADE, related_name="kitchentabitemkitchentab")
-    count = models.IntegerField()
+# class KitchenTab(AbstractBaseModel):
+#     """
+#     Keep list of user's stocking
+#     """
+#     date = models.ForeignKey(KitchenArchive, on_delete=models.CASCADE, related_name="kitchentabkitchenarchive")
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="kitchentabuser")
 
-    def __str__(self):
-        return f"{self.kitchentab.user.username} - {self.food.name}"
+#     def __str__(self):
+#         return f"{self.date.date} - {self.user.first_name} {self.user.last_name}"
+
+
+# class KitchenTabItem(AbstractBaseModel):
+#     """
+#     An item in the BarTab list
+#     """
+#     food = models.ForeignKey(Food, on_delete=models.CASCADE, related_name="kitchentabitemfood")
+#     kitchentab = models.ForeignKey(KitchenTab, on_delete=models.CASCADE, related_name="kitchentabitemkitchentab")
+#     count = models.IntegerField()
+
+#     def __str__(self):
+#         return f"{self.kitchentab.user.username} - {self.food.name}"
